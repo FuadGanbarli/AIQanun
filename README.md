@@ -1,11 +1,10 @@
 # AIqanun Telegram Bot
 
-# Azərbaycan dilində başa düşən və cavablayan, hüquqi məsələlər ixtisaslaşan, OpenAI GPT-4 LLM istifadə olunan bot.
-🔧 Xüsusiyyətləri
+# A bot that understands and responds in Azerbaijani, specializing in legal issues, using OpenAI GPT-4 LLM.
+🔧 Features
 
-    İstifadəçilərin sorğusuna bota verilmiş tekst fayllarından istifadə edərək cavablandırır
-    TF-IDF və FAISS texnologiyasından istifadə edərək uyğun hissəni tapır
-    OpenAI API vasitəsilə GPT-4 versiyasını dəstəkləyir
-    Mesajları və cavabları yadda saxlayır (logging)
+Responds to user requests using text files provided to the bot
+Finds the matching part using TF-IDF and FAISS technology
+Supports GPT-4 version via OpenAI API
+Saves messages and responses (logging)
 
-# NOT: Tekst fayllar yaxşı vəziyyətdə deyil, buna görə də bot suala doğru cavab verməyə bilər.
