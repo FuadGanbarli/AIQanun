@@ -24,12 +24,11 @@ INDEX_FILE = "law_index.faiss"
 top_k = 3
 
 
-#Hər hansı bir tekst faylını oxuyur
+
 def read_txt_file(txt_path):
     with open(txt_path, "r", encoding="utf-8") as f:
         return f.read()
-
-#Qovluqdakı bütün tekst faylları siyahı kimi saxlayır
+
 def read_all_txts(folder):
     all_texts = []
     for filename in os.listdir(folder):
@@ -37,8 +36,7 @@ def read_all_txts(folder):
             file_path = os.path.join(folder, filename)
             all_texts.append(read_txt_file(file_path))
     return all_texts
-
-#Textsləri hissələr bölür və ilk 500-lük hissəni götürür
+
 def split_text(text, size=500):
     return [text[i:i+size] for i in range(0, len(text), size)]
 
@@ -55,7 +53,7 @@ def prepare_law_data():
         chunks = split_text(combined_text)
     
         vectorizer = TfidfVectorizer()
-        #Bölünmüş hissələri vektora çevirir
+        
         X = vectorizer.fit_transform(chunks).toarray()
         
         #FAISS indeksi yaradır
@@ -71,10 +69,10 @@ def prepare_law_data():
     return index, chunks
 
 def find_relevant_chunks(query, index, chunks):
-    #Yeni TF-IDF vektorlaşdırıcısı yaradılır və mətn hissələri + sorğu üzərində tətbiq olunur
+    
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(chunks + [query]).toarray()
-    #Sonuncu vektor sorğuya aiddir, digərləri mətn hissələridir
+    
     query_vec = X[-1]
     chunk_vecs = X[:-1]
 
